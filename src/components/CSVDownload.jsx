@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { json2csv } from 'json2csv';
+import { parse } from 'json2csv';
 
 const CSVDownload = ({ data }) => {
   const handleDownload = () => {
-    const csv = json2csv(data);
+    const csv = parse(data);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
